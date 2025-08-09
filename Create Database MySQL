@@ -1,3 +1,12 @@
 -- Create Database --
 CREATE DATABASE test_db;
 USE test_db;
+
+-- Create Table --
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    position VARCHAR(100),
+    salary DECIMAL(10,2),
+    hire_date DATE
+);
