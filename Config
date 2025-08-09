@@ -1,0 +1,8 @@
+-- Enable Binary Logging --
+
+[mysqld]
+server-id=1
+log-bin=mysql-bin
+binlog_format=ROW
+expire_logs_days=7
+binlog_row_image=FULL
