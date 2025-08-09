@@ -37,4 +37,3 @@ Performance results are recorded and analyzed to compare the efficiency, scalabi
 
 ---
 
-## 📂 Folder Structure
