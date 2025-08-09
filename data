@@ -24,3 +24,21 @@ CALL insert_bulk_data();
 -- Verify Record Count --
 SELECT COUNT(*) FROM employees;
 
+
+-- Common commands --
+-- Logical Backup using mysqldump --
+mysqldump -u root -p test_db > test_db_backup.sql
+
+-- Simulate Disaster --
+DROP DATABASE test_db;
+OR
+DELETE FROM employees;
+
+-- Measure Duration using Stopwatch in PowerShell --
+$sw = [System.Diagnostics.Stopwatch]::StartNew()
+Start-Process -Wait cmd "/c mysqldump -u root -p test_db > test_db_backup.sql"
+$sw.Stop()
+$sw.Elapsed
+
+
+
