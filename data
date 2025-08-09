@@ -1,0 +1,22 @@
+-- Create random rows in the tables --
+
+DELIMITER $$
+
+CREATE PROCEDURE insert_bulk_data()
+BEGIN
+    DECLARE i INT DEFAULT 1;
+    WHILE i <= 10000 DO
+        INSERT INTO employees (name, position, salary, hire_date)
+        VALUES (
+            CONCAT('Employee_', i),
+            ELT(FLOOR(1 + (RAND() * 5)), 'Engineer', 'Manager', 'Analyst', 'Intern', 'HR'),
+            ROUND(3000 + (RAND() * 4000), 2),
+            DATE_SUB(CURDATE(), INTERVAL FLOOR(RAND() * 1000) DAY)
+        );
+        SET i = i + 1;
+    END WHILE;
+END$$
+
+DELIMITER ;
+
+CALL insert_bulk_data();
